@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>哈哈哈哈</title>
+	<script>
+	  function user_ajaxx(){
+		  var bo=new XMLHttpRequest(); //创建异步对象
+			//创建请求,打开连接
+  bo.open("get","http://127.0.0.1:8080/ajax/myajax",true);
+	             bo.send(null);  //发送请求
+		   bo.onreadystatechange=function(){
+			  if(bo.readyState==4 && bo.status==200){
+				      var cao=bo.responseText;
+							d1.innerHTML=cao;
+						console.log(cao);
+				}
+			 }
+		}
+	</script>
+</head>
+<body>
+<div id="d1"></div>
+	<button onclick="user_ajaxx()">小伙子</button>	
+</body>
+</html>

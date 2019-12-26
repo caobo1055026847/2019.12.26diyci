@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script>
+	function user_ajax(){
+	    //1创建异步对象
+			var xhr=new XMLHttpRequest();
+			console.log(xhr)
+			//2创建请求,打开连接
+			xhr.open("get","http://127.0.0.1:8080/ajax/text",true);
+			//3发送请求
+			xhr.send();
+			//4接收响应,创建监听
+			xhr.onreadystatechange=function(){
+			  if(xhr.readyState==4 && xhr.status==200){
+				   var result=xhr.responseText;
+					 console.log(result);
+				}
+			}
+	}
+	</script>
+</head>
+<body>
+    <button onclick="user_ajax()">ajax</button>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录啦吗？</title>
+	<script>
+	    function login(){
+			 //获取用户输入的内容
+			 var $uname=uname.value;
+			 var $upwd=upwd.value;
+			//1.创建异步对象;
+			var xhr=new XMLHttpRequest();
+			//4.创建监听,获取响应
+			xhr.onreadystatechange=function(){
+			   if(xhr.readyState==4 && xhr.status==200){
+				    var result=xhr.responseText;
+						 if(result==1){
+						 alert("登录成功");
+						 }else if(result==0){
+						  alert("登录失败");
+						 }else{
+						  alert("用户名或者密码缺失");
+						 }
+				 }
+			}
+			  //2.创建请求,打开连接
+ xhr.open("get","/ajax/login_http?uname="+$uname+"&upwd="+$upwd,true);
+			//3.发送请求
+			xhr.send();
+			}
+	</script>
+</head>
+<body>
+	   <input id="uname" type="text"><br>
+		 <input id="upwd" type="text"><br>
+		 <button onclick="login()">登录了</button>
+</body>
+</html>
